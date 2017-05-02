@@ -5,7 +5,7 @@ import platform, os, sys
 
 class BoostConan(ConanFile):
     name = "Boost"
-    version = "1.63.0"
+    version = "1.64.0"
     settings = "os", "arch", "compiler", "build_type"
     FOLDER_NAME = "boost_%s" % version.replace(".", "_")
     # The current python option requires the package to be built locally, to find default Python implementation
@@ -30,6 +30,7 @@ class BoostConan(ConanFile):
         "without_log": [True, False],
         "without_math": [True, False],
         "without_mpi": [True, False],
+        "without_process": [True, False],
         "without_program_options": [True, False],
         "without_random": [True, False],
         "without_regex": [True, False],
@@ -63,6 +64,7 @@ class BoostConan(ConanFile):
         "without_log=False", \
         "without_math=False", \
         "without_mpi=False", \
+        "without_process=False", \
         "without_program_options=False", \
         "without_random=False", \
         "without_regex=False", \
@@ -170,6 +172,7 @@ class BoostConan(ConanFile):
             "--without-log": self.options.without_log,
             "--without-math": self.options.without_math,
             "--without-mpi": self.options.without_mpi,
+            "--without-process": self.options.without_process,
             "--without-program_options": self.options.without_program_options,
             "--without-random": self.options.without_random,
             "--without-regex": self.options.without_regex,
